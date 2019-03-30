@@ -15,10 +15,11 @@ func create_ground():
 		$GroundFolder.add_child(ground)
 
 func move_ground(delta):
-	for ground in $GroundFolder.get_children():
-		ground.position.x -= 32 * delta
+	var ground_array = $GroundFolder.get_children()
+	for ground in ground_array:
+		ground.position.x -= 256 * delta
 		if ground.position.x <= -32:
 			ground.queue_free()
 			var new_ground = ground_scene.instance()
-			new_ground.position = Vector2(1430, 736)
+			new_ground.position = Vector2(ground_array[ground_array.size() - 1].position.x + 64 - 256 * delta, 736)
 			$GroundFolder.add_child(new_ground)

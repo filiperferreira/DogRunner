@@ -6,7 +6,6 @@ func _process(delta):
 	fall()
 	jump()
 	move_and_slide(speed, Vector2(0,-1))
-	print(is_on_floor())
 
 func fall():
 	if is_on_floor():
